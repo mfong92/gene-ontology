@@ -8,7 +8,7 @@ soup = BeautifulSoup(html_doc)
 
 '''
 Input: python pantherGOScrape.py [panther gene family accession number]
-ex. python pantherGOScrape.py 
+ex. python pantherGOScrape.py PTHR10681:SF52
 Output: GO accession numbers and GO terms assigned to that gene family
 Creates a textfile of the name [pantherID].txt with the same information.
 ''' 
