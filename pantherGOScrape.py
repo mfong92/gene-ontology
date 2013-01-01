@@ -6,7 +6,14 @@ import sys
 from bs4 import BeautifulSoup
 soup = BeautifulSoup(html_doc)
 
-def pantherScrape():
+'''
+Input: python pantherGOScrape.py [panther gene family accession number]
+ex. python pantherGOScrape.py 
+Output: GO accession numbers and GO terms assigned to that gene family
+Creates a textfile of the name [pantherID].txt with the same information.
+''' 
+
+def pantherGOScrape():
 
 	pantherID = sys.argv[1]
 	html_doc = " " 
@@ -101,7 +108,21 @@ def pantherScrape():
 	print cellListNum
 	print cellListTerm 
 
+	outFile = open(str(pantherID) + '.txt', 'w')
+	outFile.write('GO Molecular Function \n')
+	outFile.write(str(molecListNum))
+	outFile.write('\n')
+	outFile.write(str(molecListTerm))
+	outFile.write('\n\n GO Biological Process\n')
+	outFile.write(str(bioListNum))
+	outFile.write('\n')
+	outFile.write(str(bioListTerm))
+	outFile.write('\n\n GO Cellular Component\n')
+	outFile.write(str(cellListNum))
+	outFile.write('\n')
+	outFile.write(str(cellListTerm))
+
 
 
 if __name__=="__main__":
-	pantherScrape()
+	pantherGOScrape()
