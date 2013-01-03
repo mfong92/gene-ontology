@@ -1,9 +1,9 @@
 GO Molecular Function 
-['0003824', '0016491', '0016209', '0004601']
+[['0003824'], ['0016491'], ['0016209'], ['0004601']]
 ['catalytic activity', 'oxidoreductase activity', 'antioxidant activity', 'peroxidase activity']
 
  GO Biological Process
-['0002376', '0008152', '0006800']
+[['0002376'], ['0008152'], ['0006800']]
 ['immune system process', 'metabolic process', 'oxygen and reactive oxygen species metabolic process']
 
  GO Cellular Component

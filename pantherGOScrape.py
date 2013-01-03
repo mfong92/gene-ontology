@@ -42,10 +42,13 @@ def pantherGOScrape():
  			if ((re.findall("GO", str(i)) != [])):
  				if (molec):
  					molecList.append(str(i))
+ 					molecListTerm.append(str(i.get_text()))
  				if (cell):
  					cellList.append(str(i))
+ 					cellListTerm.append(str(i.get_text()))
  				if (bio):
  					bioList.append(str(i))
+ 					bioListTerm.append(str(i.get_text()))
  				
  		if (i in soup.find_all('td')):
  			if ((re.findall("table", str(i)) == [])):
@@ -63,13 +66,9 @@ def pantherGOScrape():
 	for i in range (len(molecList)):
 	 	currentNum = ""
 	 	currentTerm = ""
-	 	for j in range (45, 52):
-	 		currentNum += str(molecList[i][j])
-	 	molecListNum.append(currentNum)
+	 	currentNum = re.findall(r"([0-9][0-9]*)", str(molecList[i]))
 
-	 	for k in range (54, len(molecList[i]) - 4):
-	 		currentTerm += str(molecList[i][k])
-	 	molecListTerm.append(currentTerm)
+	 	molecListNum.append(currentNum)
 
 	print '\n' + "GO Molecular Function"
 	print molecListNum
@@ -79,13 +78,9 @@ def pantherGOScrape():
 	for i in range (len(bioList)):
 	 	currentNum = ""
 	 	currentTerm = ""
-	 	for j in range (45, 52):
-	 		currentNum += str(bioList[i][j])
-	 	bioListNum.append(currentNum)
 
-	 	for k in range (54, len(bioList[i]) - 4):
-	 		currentTerm += str(bioList[i][k])
-	 	bioListTerm.append(currentTerm)
+		currentNum = re.findall(r"([0-9][0-9]*)", str(bioList[i]))
+		bioListNum.append(currentNum)
 
 	print '\n' + "GO Biological Process"
 	print bioListNum
@@ -96,13 +91,8 @@ def pantherGOScrape():
 	for i in range (len(cellList)):
 	 	currentNum = ""
 	 	currentTerm = ""
-	 	for j in range (45, 52):
-	 		currentNum += str(cellList[i][j])
-	 	cellListNum.append(currentNum)
 
-	 	for k in range (54, len(cellList[i]) - 4):
-	 		currentTerm += str(cellList[i][k])
-	 	cellListTerm.append(currentTerm)
+		currentNum = re.findall(r"([0-9][0-9]*)", str(cellList[i]))
 
 	print '\n'+ "GO Cellular Component"
 	print cellListNum
